@@ -1,2 +1,17 @@
-<h1 align="center">{{problem.name}}</h1>
-<p>{{ problem.problem_statement }}</p>
+<h1 align="center"><u>{{problem.name}}</u></h1>
+<p align="center">{{ problem.problem_statement }}</p>
+<br>
+
+<form action="{% url 'judge:submit' problem.id %}" enctype="multipart/form-data" method="post">
+{% csrf_token %}
+    <fieldset>
+        <h3 align="center">Submit your code here</h3>
+        <div align="center">
+            <input type="file" id="solution" name="solution">
+            <br><br>
+            <textarea id="solution" name="solution" rows="10" cols="100"></textarea>
+            <br><br>
+            <input type="submit" value="Submit">
+        </div>
+    </fieldset>
+</form>
