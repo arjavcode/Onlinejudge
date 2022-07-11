@@ -1,8 +1,18 @@
+from multiprocessing import context
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 # Create your views here.
 
 from .models import Problem
+
+# def registerPage(request):
+#     context = {}
+#     return render(request, 'judge/register.html' , context)
+
+# def loginPage(request):
+#     context = {}
+#     return render(request, 'judge/login.html' , context)
+
 
 def problems(request):
     problem_list = Problem.objects.all()

@@ -1,0 +1,12 @@
+
+
+
+from django.urls import path
+from . import views
+from judge import views as api1
+
+urlpatterns = [
+    path('register/', views.registerPage, name="register"),
+    path('login/', views.loginPage, name="login"),
+    path('', api1.problems  , name="problems")
+] 

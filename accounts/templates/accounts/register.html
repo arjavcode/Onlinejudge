@@ -1,0 +1,40 @@
+<h2>Register</h2>
+
+<form method="POST" , action="">
+    {% csrf_token %}
+    
+    <!-- COULD WRITE JUST THIS LINE BELOW TO CREATE USER FORM  -->
+    <!-- {{ form.as_p }}     -->
+
+
+    <!-- OR -->
+
+
+    <!-- {% for field in form %}
+        {{field.label}}
+        {{field}}
+        <br>
+
+    {% endfor %} -->
+
+    
+    <!-- OR -->
+
+    {{form.username.label}}
+    {{form.username}}<br><br>
+ 
+    {{form.email.label}}
+    {{form.email}}<br><br>
+
+    {{form.password1.label}}
+    {{form.password1}}<br><br>
+
+    {{form.password2.label}}
+    {{form.password2}}<br><br>
+
+    {{form.errors}}
+
+    <input type="submit" name="Create User">
+</form>
+
+    <h3>Have an account!  <a href={% url 'login' %}><i>Sign In</i></a></h3>
