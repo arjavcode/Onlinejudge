@@ -1,6 +1,6 @@
-<h2>Register</h2>
+<h2 align="center">Register</h2>
 
-<form method="POST" , action="">
+<form align="center" method="POST" , action="">
     {% csrf_token %}
     
     <!-- COULD WRITE JUST THIS LINE BELOW TO CREATE USER FORM  -->
@@ -37,4 +37,4 @@
     <input type="submit" name="Create User">
 </form>
 
-    <h3>Have an account!  <a href={% url 'login' %}><i>Sign In</i></a></h3>
+    <h3 align="center">Have an account!  <a href={% url 'accounts:login' %}><i>Sign In</i></a></h3>

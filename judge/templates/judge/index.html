@@ -1,9 +1,37 @@
-{% if problem_list %}
-    <ol>
-        {% for problem in problem_list %}
-            <li><a href="{% url 'judge:problem_detail' problem.id %}">{{problem.name}}</li>
-        {% endfor %}
-    </ol>
-{% else %}
-    <p>No problems are available.</p>
-{% endif %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .topright {
+            position: absolute;
+            top: 8px;
+            right: 16px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="topright">
+        <span> Hello, <b>{{request.user}}</b> </span>
+        <a href="{% url 'accounts:logout' %}">
+            <button id="logout_button">Logout</button>
+        </a> 
+    </div>
+
+    <div>
+        {% if problem_list %}
+        <ol>
+            {% for problem in problem_list %}
+                <li><a href="{% url 'judge:problem_detail' problem.id %}">{{problem.name}}</li>
+            {% endfor %}
+        </ol>
+        {% else %}
+            <p>No problems are available.</p>
+        {% endif %}
+    </div>
+    
+</body>
+</html>
+
+

@@ -1,20 +1,46 @@
-<h1 align="center"><u>{{problem.name}}</u></h1>
-<p align="center">{{ problem.problem_statement }}</p>
-<br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .topright {
+            position: absolute;
+            top: 8px;
+            right: 16px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
 
-<form action="{% url 'judge:submit' problem.id %}" enctype="multipart/form-data" method="post">
-{% csrf_token %}
-    <fieldset>
-        <h3 align="center">Submit your code here</h3>
-        <div align="center">
-            <input type="file" id="solution" name="solution">
-            <br>
-            <h2 align="center">Or</h2>
-            <br>
-            <textarea id="solution" name="solution" rows="20" cols="100" style="width: 1269px;
-            height: 173px;"></textarea>
-            <br><br>
-            <input type="submit" value="Submit">
-        </div>
-    </fieldset>
-</form>
+    <div class="topright">
+        <span> Hello, <b>{{request.user}}</b> </span>
+        <a href="{% url 'accounts:logout' %}">
+            <button id="logout_button">Logout</button>
+        </a> 
+    </div>
+
+    <div>
+        <h1 align="center"><u>{{problem.name}}</u></h1>
+        <p align="center">{{ problem.problem_statement }}</p>
+        <br>
+
+        <form action="{% url 'judge:submit' problem.id %}" enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            <fieldset>
+                <h3 align="center">Submit your code here</h3>
+                <div align="center">
+                    <input type="file" id="solution" name="solution">
+                    <br>
+                    <h2 align="center">Or</h2>
+                    <br>
+                    <textarea id="solution" name="solution" rows="20" cols="100" style="width: 1269px;
+                    height: 173px;"></textarea>
+                    <br><br>
+                    <input type="submit" value="Submit">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    
+</body>
+</html>

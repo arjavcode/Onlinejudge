@@ -1,9 +1,13 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateUserForm
 from django.contrib.auth import authenticate, login, logout
 
 from django.contrib import messages
+
+from django.contrib.auth.decorators import login_required
+# from judge import views as api1
 # Create your views here.
 
 def registerPage(request):
@@ -15,9 +19,10 @@ def registerPage(request):
             form.save()
             user = form.cleaned_data.get('username')
             messages.success(request, 'Account was created for ' + user)
+            
+            return HttpResponseRedirect('/accounts/login')     #Working fine
+             # return redirect('login')        #Showing error
 
-
-            return redirect('login')
 
     context = {'form' : form}
     return render(request, 'accounts/register.html' , context)
@@ -33,11 +38,17 @@ def loginPage(request):
 
         if user is not None:
             login(request, user)
-            return redirect('problems')
-        else:
-            messages.info(request, 'Username od Password is incorrect')
-            return render(request, 'accounts/login.html' , context)
+            return HttpResponseRedirect('/judge/')     #Working fine
+            # return redirect('problems')               #Showing error
 
+        else:
+            messages.info(request, 'Username or Password is incorrect')
+    
     context = {}
+    
     return render(request, 'accounts/login.html' , context)
 
+def logoutUser(request):
+    logout(request)
+    return HttpResponseRedirect('/accounts/login')     #Working fine
+    # return redirect('login')        #Showing error
