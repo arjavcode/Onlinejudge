@@ -20,8 +20,8 @@ def registerPage(request):
             user = form.cleaned_data.get('username')
             messages.success(request, 'Account was created for ' + user)
             
-            return HttpResponseRedirect('/accounts/login')     #Working fine
-             # return redirect('login')        #Showing error
+            return redirect('/accounts/login')     #Working fine
+            # return redirect('loginuser')        #Showing error
 
 
     context = {'form' : form}
@@ -38,8 +38,8 @@ def loginPage(request):
 
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect('/judge/')     #Working fine
-            # return redirect('problems')               #Showing error
+            return redirect('/judge/')                               #Working fine
+            # return redirect('problems')                           #Showing error
 
         else:
             messages.info(request, 'Username or Password is incorrect')
@@ -50,5 +50,5 @@ def loginPage(request):
 
 def logoutUser(request):
     logout(request)
-    return HttpResponseRedirect('/accounts/login')     #Working fine
-    # return redirect('login')        #Showing error
+    return redirect('/accounts/login')                        #Working fine
+    # return redirect('loginuser')                                         #Showing error

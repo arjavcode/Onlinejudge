@@ -7,5 +7,5 @@ urlpatterns = [
     path('', views.problems, name = 'problems'),
     path('problem/<int:problem_id>/', views.problemDetail, name ='problem_detail'),
     path('problem/<int:problem_id>/submit/', views.problemDetail , name='submit'),
-    path('/accounts/login/', api1.loginPage, name='login'),
+    path('/accounts/login/', api1.loginPage, name='login1'),
 ]
