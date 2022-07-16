@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html >
+<head>
+    
+</head>
+<body>
+    <div align="center">
+        {% if solutions %}
+            <ul>
+                {% for sol in solutions %}
+                    <p>{{sol.problem.name}} - {{sol.verdict}} - {{sol.submitted_at}} </p>
+                {% endfor %}
+            </ul>
+        
+        {% else %}
+            <p> No data available.</p>
+        {% endif %}
+
+        <hr>
+        <h2><a href="{% url 'judge:problems' %}">Back to problems page</a></h2>     
+    </div>
+</body>
+</html>

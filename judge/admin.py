@@ -1,6 +1,7 @@
 from django.contrib import admin
+from judge.models import Problem,Solution,Testcases
 
 # Register your models here.
-from judge.models import Problem
-
 admin.site.register(Problem)
+admin.site.register(Solution)
+admin.site.register(Testcases)

@@ -22,8 +22,10 @@
     <div>
         {% if problem_list %}
         <ol>
+            <br><br>
             {% for problem in problem_list %}
                 <li><a href="{% url 'judge:problem_detail' problem.id %}">{{problem.name}}</li>
+                <br>
             {% endfor %}
         </ol>
         {% else %}
